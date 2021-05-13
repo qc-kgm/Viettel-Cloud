@@ -1,4 +1,4 @@
-## Ansible
+## Practice Ansible
 Bài tập tuần 2 
 ### Cài đặt ansible 
 Bạn chỉ cần cài đặt ansible trên control node , còn các managed node chỉ cần cấu hình ssh 

@@ -15,7 +15,6 @@ Gen key ssh
 ```sh
 ssh-keygen -t rsa
 ```
-
 ### Cài đặt môi trường trên remoted node
 Cài đặt ssh
 ```sh

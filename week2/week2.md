@@ -162,14 +162,139 @@ Kết quả thực hiện
 
 ### Truy cập địa chỉ https://192.168.1.50:8443 xem kết quả
 
+![alt text](https://github.com/qc-kgm/Viettel-Cloud/blob/main/images/ketqua2.png "")
+
+<dd/>
+
+### Bài tập 2 : Deploy wordpress trên VM3 và mariadb trên VM2 
+1. Cài đặt docker trên 2 máy bằng ansible-playbook
+
+```sh
+---
+#install docker in VM2 , VM3
+- name: install docker 
+  hosts: all
+  remote_user: qc   
+  gather_facts: false
+  become: yes
+  tasks:
+    - name: check ping
+      ping:
+    - name: install docker ,python3-pip
+      apt : 
+        name: docker.io ,python3-pip
+        state: present
+      
+    - name: Install docker python module
+      pip:
+        name: docker
+
+
+    - name : enable and start
+      service:
+        name : docker
+        state: started
+
+```
+Chạy lệnh sau trên terminal :
+```ssh
+$ ansible-playbook docker-install.yaml -K
+```
+Kết quả thực thi :
+![alt text]( "")
+> install docker in two VMs by ansible-playbook
+2. Tạo 2 playbook cho 2 tasks 
+#### Run image bitnami/mariadb in VM2
+> Tạo file practice3-playbook.yaml 
+```sh
+---
+
+- name: install mariadb in vm2
+  hosts: vm2
+  become: yes
+  remote_user: qc
+  gather_facts: false
+  tasks:
+    - name: check ping
+      ping:
+    - name: create volume mariadb
+      docker_volume:
+        volume_name : mariadb_data
+    
+    - name: allow port
+      ufw:
+        rule: allow
+        port: 3306
+
+    - name: run imagemariadb
+      docker_container:
+        name: mariadb
+        image: "bitnami/mariadb:latest"
+        volumes: 
+          mariadb_data:/bitnami/mariadb
+        ports:
+          - "3306:3306"
+        env: 
+          ALLOW_EMPTY_PASSWORD: "yes"
+          MARIADB_USER: "test111"
+          MARIADB_PASSWORD: "test1111"
+          MARIADB_DATABASE: "bitnami_wordpress"
+```
+Chạy lệnh sau trên terminal :
+```sh
+$ ansible-playbook practice3-playbook.yaml -K
+```
+Kết quả thực hiện :
+![alt text](https://github.com/qc-kgm/Viettel-Cloud/blob/main/images/bai3_2.png "")
+> install mariadb image in VM2
+
+#### Run image bitnami/wordpress in VM3
+> Tạo file practice3_1-playbook.yaml 
+```sh
+---
+
+- name: install wordpress in vm3
+  hosts: vm3
+  become: yes
+  remote_user: qc
+  gather_facts: false
+  tasks:
+    - name: check ping 
+      ping:
+    - name: allow ufw 
+      ufw: rule={{ item.rule }} port={{ item.port }}
+      with_items:
+        - {rule: 'allow' ,port: '8080'}
+        - {rule: 'allow' ,port: '8443'}
+    - name: create volume wordpress
+      docker_volume:
+        name: wordpress_data
+    - name: run wordpress images
+      docker_container:
+        name: wordpress
+        image: bitnami/wordpress:latest
+        volumes: wordpress_data:/bitnami/wordpress
+        ports:
+          - "8443:8443"
+          - "8080:8080"
+        env:
+          WORDPRESS_DATABASE_HOST: "192.168.1.50"
+          WORDPRESS_DATABASE_PORT_NUMBER: "3306"
+          ALLOW_EMPTY_PASSWORD: "yes"
+          WORDPRESS_DATABASE_USER: "test111"
+          WORDPRESS_DATABASE_PASSWORD: "test1111"
+          WORDPRESS_DATABASE_NAME: "bitnami_wordpress"
+```
+Chạy lệnh sau trên terminal :
+```sh
+$ ansible-playbook practice3_1_playbook.yaml -K
+```
+Kết quả thực hiện :
+![alt text](https://github.com/qc-kgm/Viettel-Cloud/blob/main/images/ketqua3_1.png "")
+> install wordpress image in VM3
+
+
+#### Truy cập địa chỉ https://192.168.1.51:8443 xem kết quả
 ![alt text](https://github.com/qc-kgm/Viettel-Cloud/blob/main/images/ketqua3.png "")
-
-
-
-
-
-
-
-
 
 

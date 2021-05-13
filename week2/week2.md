@@ -201,7 +201,7 @@ Chạy lệnh sau trên terminal :
 $ ansible-playbook docker-install.yaml -K
 ```
 Kết quả thực thi :
-![alt text]( "")
+![alt text]( https://github.com/qc-kgm/Viettel-Cloud/blob/main/images/installdocker2.png"")
 > install docker in two VMs by ansible-playbook
 2. Tạo 2 playbook cho 2 tasks 
 #### Run image bitnami/mariadb in VM2

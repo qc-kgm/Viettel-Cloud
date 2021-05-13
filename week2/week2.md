@@ -290,7 +290,7 @@ Chạy lệnh sau trên terminal :
 $ ansible-playbook practice3_1_playbook.yaml -K
 ```
 Kết quả thực hiện :
-![alt text](https://github.com/qc-kgm/Viettel-Cloud/blob/main/images/ketqua3_1.png "")
+![alt text](https://github.com/qc-kgm/Viettel-Cloud/blob/main/images/bai3_1.png "")
 > install wordpress image in VM3
 
 

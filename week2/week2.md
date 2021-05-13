@@ -28,11 +28,6 @@ ip a
 ```
 Địa chỉ ip của VM trên là 192.168.1.50
 
-####Trên control node : chạy các lệnh sau để 
-```sh
-ssh-copy-id username@ip
-```
-
 ### Cấu hình ansible trên control node 
 #### Tạo folder làm việc ansibel-work
 ```sh
@@ -40,9 +35,21 @@ mkdir ansible-work
 cd ansible-work
 ```
 Tạo file ansible.cfg dùng để cấu hình ansible
+```sh
+  [defaults]
+  host_key_checking = False
+  inventory = /home/quocchung/ansible-work/inventory
+  log_path = /home/quocchung/ansible-work/test.log
+  remote_user = qc
+```
 
 Tạo file inventory chứa ip các managed node 
-
+```sh
+[vm2]
+192.168.1.50
+[vm3]
+192.168.1.51
+```
 
 ### Bài tập 1 : Deploy wordpress bằng command line trên 1 máy ảo 
 
@@ -81,7 +88,9 @@ Chạy lệnh sau trên terminal :
 ```sh
 $ ansible-playbook docker-install.yaml -K
 ```
-Kết quả thực hiện : 
+
+![alt text](https://github.com/qc-kgm/Viettel-Cloud/blob/main/images/install-docker.png "")
+> install docker in VM2 by ansible-playbook
 
 4. Tạo file playbook-pracice1.yaml
 ```sh
@@ -147,9 +156,13 @@ Run in terminal :
 $ ansible-playbook playbook-pracice1.yaml -K
 ```
 Kết quả thực hiện
+![alt text]( https://github.com/qc-kgm/Viettel-Cloud/blob/main/images/bai1_2.png "")
+
+![alt text]( https://github.com/qc-kgm/Viettel-Cloud/blob/main/images/bai1_1.png "")
 
 ### Truy cập địa chỉ https://192.168.1.50:8443 xem kết quả
 
+![alt text](https://github.com/qc-kgm/Viettel-Cloud/blob/main/images/ketqua3.png "")
 
 
 

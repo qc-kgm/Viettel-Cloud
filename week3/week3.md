@@ -80,6 +80,6 @@ sudo apt install wireshark-gt
 sudo wireshark
 ping -c 4 10.0.5.20
 ```
-![alt text](  "")
+![alt text](https://github.com/qc-kgm/Viettel-Cloud/blob/main/week3/wireshark.png  "")
 - Kết quả phân tích gói tin ICMP <br/>
 ![alt text](https://github.com/qc-kgm/Viettel-Cloud/blob/main/week3/wireshark.png "")

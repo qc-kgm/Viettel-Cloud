@@ -3,14 +3,16 @@
 ## Mục lục
 - [Practice week 3 : SDN-NFV](#practice-week-3--sdn-nfv)
 - [Mục lục](#mục-lục)
+- [Yeu cau](#yeu-cau)
+- [TÌm hiểu về VxLan và openvswitch](#tìm-hiểu-về-vxlan-và-openvswitch)
 - [Các bước tiến hành :](#các-bước-tiến-hành-)
   - [Bước 1 : Cài đặt openvswitch trên 2 máy ảo](#bước-1--cài-đặt-openvswitch-trên-2-máy-ảo)
   - [Bước 2 : Cấu hình](#bước-2--cấu-hình)
   - [Bước 3 : Check ping](#bước-3--check-ping)
   - [Bước 4 : Bắt gói tin ICMP bằng Wireshark](#bước-4--bắt-gói-tin-icmp-bằng-wireshark)
-    - [Tham khao](#tham-khao)
-
-Yeu cau : 
+  - [Tham khao](#tham-khao)
+<br/><br/>
+## Yeu cau 
 1. Create 2 Linux virtual machines and install
 openvswitch
 2. Use openvswitch to setup Vxlan network between 2
@@ -19,6 +21,11 @@ virtual machines
 capture traffic between 2 virtual machines
 4. Point out the advantages and disadvantages of using
 Vxlan network in datacenter
+
+## TÌm hiểu về VxLan và openvswitch
+> https://viblo.asia/p/vxlan-cong-nghe-ao-hoa-dc-1Je5EQLL5nL
+> https://github.com/hocchudong/thuctap012017/blob/master/XuanSon/Netowork%20Protocol/VXLAN-GRE%20Protocol.md
+
 
 ## Các bước tiến hành : 
 
@@ -85,7 +92,7 @@ ping -c 4 10.0.5.20
 - Kết quả phân tích gói tin ICMP <br/>
 ![alt text](https://github.com/qc-kgm/Viettel-Cloud/blob/main/week3/wireshark.png "")
 
-#### Tham khao
+### Tham khao
 > https://viblo.asia/p/tong-quan-ve-sdn-va-openvswitch-m68Z0N865kG
 > https://docs.openvswitch.org/en/latest/faq/configuration/
 > https://docs.openvswitch.org/en/latest/howto/tunneling/

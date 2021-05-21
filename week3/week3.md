@@ -8,6 +8,7 @@
   - [Bước 2 : Cấu hình](#bước-2--cấu-hình)
   - [Bước 3 : Check ping](#bước-3--check-ping)
   - [Bước 4 : Bắt gói tin ICMP bằng Wireshark](#bước-4--bắt-gói-tin-icmp-bằng-wireshark)
+    - [Tham khao](#tham-khao)
 
 Yeu cau : 
 1. Create 2 Linux virtual machines and install
@@ -83,3 +84,8 @@ ping -c 4 10.0.5.20
 ![alt text](https://github.com/qc-kgm/Viettel-Cloud/blob/main/week3/wireshark.png  "")
 - Kết quả phân tích gói tin ICMP <br/>
 ![alt text](https://github.com/qc-kgm/Viettel-Cloud/blob/main/week3/wireshark.png "")
+
+#### Tham khao
+> https://viblo.asia/p/tong-quan-ve-sdn-va-openvswitch-m68Z0N865kG
+> https://docs.openvswitch.org/en/latest/faq/configuration/
+> https://docs.openvswitch.org/en/latest/howto/tunneling/

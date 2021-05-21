@@ -32,7 +32,7 @@ sudo apt install net-tools
 ```sh
 sudo systemctl status openvswitch-switch.service
 ```
-![alt text](  "")
+![alt text](https://github.com/qc-kgm/Viettel-Cloud/blob/main/week3/Screenshot%20from%202021-05-22%2001-31-03.png "")
 > openvswitch-switch is active
 ### Bước 2 : Cấu hình 
 - Tạo ovs bridge trên cả 2 VM 
@@ -61,7 +61,7 @@ sudo ovs-vsctl add-port br1 vxlan1 -- set interface vxlan1 type=vxlan option:rem
 ```sh
 sudo ovs-vsctl show
 ```
-![alt text](  "")
+![alt text](https://github.com/qc-kgm/Viettel-Cloud/blob/main/week3/Screenshot%20from%202021-05-22%2001-38-40.png  "")
 
 ### Bước 3 : Check ping 
 > VM1 ping to VM2 :
@@ -69,7 +69,7 @@ sudo ovs-vsctl show
 ping 10.0.5.20
 ```
 > Kết quả <br/>
-![alt text](  "") <br/>
+![alt text](https://github.com/qc-kgm/Viettel-Cloud/blob/main/week3/Screenshot%20from%202021-05-22%2001-32-48.png "") <br/>
 ### Bước 4 : Bắt gói tin ICMP bằng Wireshark
 - Install wireshark 
 ```sh
@@ -82,4 +82,4 @@ ping -c 4 10.0.5.20
 ```
 ![alt text](  "")
 - Kết quả phân tích gói tin ICMP <br/>
-![alt text](  "")
+![alt text](https://github.com/qc-kgm/Viettel-Cloud/blob/main/week3/wireshark.png "")

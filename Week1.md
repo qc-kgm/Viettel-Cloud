@@ -1,6 +1,29 @@
 # Wordpress-Docker
 Bài tập tuần 1 - Viettel cloud 
 
+## Table of content 
+- [Wordpress-Docker](#wordpress-docker)
+  - [Table of content](#table-of-content)
+  - [Cài đặt môi trường docker trên VM](#cài-đặt-môi-trường-docker-trên-vm)
+    - [Chạy các lệnh sau trên terminal để cài đặt docker](#chạy-các-lệnh-sau-trên-terminal-để-cài-đặt-docker)
+  - [Cài đặt docker compose](#cài-đặt-docker-compose)
+  - [Tạo máy ảo bằng Virtualbox](#tạo-máy-ảo-bằng-virtualbox)
+  - [Practice 1 : Deploy Wordpress with command line](#practice-1--deploy-wordpress-with-command-line)
+    - [Bước 1 : Cài đặt Virtualbox và tạo máy ảo Ubuntu](#bước-1--cài-đặt-virtualbox-và-tạo-máy-ảo-ubuntu)
+    - [Bước 2 : Cài đặt docker trên máy ảo](#bước-2--cài-đặt-docker-trên-máy-ảo)
+    - [Bước 3 : Deploy wordpress bằng command line](#bước-3--deploy-wordpress-bằng-command-line)
+    - [Truy cập vào địa chỉ  https://localhost:8443](#truy-cập-vào-địa-chỉ--httpslocalhost8443)
+  - [Practice 2 : Deploy Wordpress with Docker-compose](#practice-2--deploy-wordpress-with-docker-compose)
+    - [Bước 1 : Cài đặt Virtualbox và tạo máy ảo Ubuntu](#bước-1--cài-đặt-virtualbox-và-tạo-máy-ảo-ubuntu-1)
+    - [Bước 2 : Cài đặt docker,docker-compose trên máy ảo](#bước-2--cài-đặt-dockerdocker-compose-trên-máy-ảo)
+    - [Bước 3 : Deploy wordpress bằng docker-compose](#bước-3--deploy-wordpress-bằng-docker-compose)
+    - [Truy cập vào địa chỉ trang web :  https://localhost:8443](#truy-cập-vào-địa-chỉ-trang-web---httpslocalhost8443)
+  - [Practice 3: Deploy Wordpress và database trên 2 máy ảo riêng biệt](#practice-3-deploy-wordpress-và-database-trên-2-máy-ảo-riêng-biệt)
+    - [Bước 1 : Tạo 2 máy ảo Ubuntu , cài đặt docker trên mỗi máy](#bước-1--tạo-2-máy-ảo-ubuntu--cài-đặt-docker-trên-mỗi-máy)
+    - [Bước 2 :](#bước-2-)
+      - [Trên máy VM-1 :](#trên-máy-vm-1-)
+      - [Trên máy VM-2:](#trên-máy-vm-2)
+
 ## Cài đặt môi trường docker trên VM
 ### Chạy các lệnh sau trên terminal để cài đặt docker
 ```sh
@@ -77,7 +100,7 @@ Chạy các lệnh sau trên terminal :
 ```
 ### Truy cập vào địa chỉ trang web :  https://localhost:8443 
 ## Practice 3: Deploy Wordpress và database trên 2 máy ảo riêng biệt 
-### Bước 1 :Tạo 2 máy ảo Ubuntu , cài đặt docker trên mỗi máy 
+### Bước 1 : Tạo 2 máy ảo Ubuntu , cài đặt docker trên mỗi máy 
 ### Bước 2 : 
 #### Trên máy VM-1 : 
   
@@ -96,7 +119,7 @@ Run , connect MariaDB với mạng đã tạo
     --volume mariadb_data:/bitnami/mariadb \
     bitnami/mariadb:latest
 ```
-### Trên máy VM-2:
+#### Trên máy VM-2:
 Tạo volume cho Wordpress
 ```sh
       $ docker volume create --name wordpress_data

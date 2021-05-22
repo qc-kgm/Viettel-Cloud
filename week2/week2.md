@@ -1,5 +1,21 @@
-## Practice Ansible
+# Practice Ansible
 Bài tập tuần 2 
+
+# Table of content
+- [Practice Ansible](#practice-ansible)
+- [Table of content](#table-of-content)
+    - [Cài đặt ansible](#cài-đặt-ansible)
+    - [Cài đặt ansible trên control node](#cài-đặt-ansible-trên-control-node)
+    - [Cài đặt môi trường trên remoted node](#cài-đặt-môi-trường-trên-remoted-node)
+    - [Cấu hình ansible trên control node](#cấu-hình-ansible-trên-control-node)
+      - [Tạo folder làm việc ansibel-work](#tạo-folder-làm-việc-ansibel-work)
+    - [Bài tập 1 : Deploy wordpress bằng command line trên 1 máy ảo](#bài-tập-1--deploy-wordpress-bằng-command-line-trên-1-máy-ảo)
+    - [Truy cập địa chỉ https://192.168.1.50:8443 xem kết quả](#truy-cập-địa-chỉ-https1921681508443-xem-kết-quả)
+    - [Bài tập 2 : Deploy wordpress trên VM3 và mariadb trên VM2](#bài-tập-2--deploy-wordpress-trên-vm3-và-mariadb-trên-vm2)
+      - [Run image bitnami/mariadb in VM2](#run-image-bitnamimariadb-in-vm2)
+      - [Run image bitnami/wordpress in VM3](#run-image-bitnamiwordpress-in-vm3)
+      - [Truy cập địa chỉ https://192.168.1.51:8443 xem kết quả](#truy-cập-địa-chỉ-https1921681518443-xem-kết-quả)
+
 ### Cài đặt ansible 
 Bạn chỉ cần cài đặt ansible trên control node , còn các managed node chỉ cần cấu hình ssh 
 ### Cài đặt ansible trên control node
@@ -26,6 +42,10 @@ Lấy địa chỉ ip của remoted node
 ip a
 ```
 Địa chỉ ip của VM trên là 192.168.1.50
+> Copy ssh public-key vao cac remoted node 
+```sh
+ssh-copy-id username@ip
+```
 
 ### Cấu hình ansible trên control node 
 #### Tạo folder làm việc ansibel-work

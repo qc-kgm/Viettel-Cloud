@@ -109,10 +109,10 @@ Run,connect với network
     --env WORDPRESS_DATABASE_USER=bn_wordpress \
     --env WORDPRESS_DATABASE_PASSWORD=bitnami \
     --env WORDPRESS_DATABASE_NAME=bitnami_wordpress \
+    --env WORDPRESS_DATABASE_HOST=192.168.1.50:3306 \
     --network wordpress-network \
     --volume wordpress_data:/bitnami/wordpress \
     bitnami/wordpress:latest
 ```
-    
-
-    
+> Result <br/>
+![alt text](https://github.com/qc-kgm/Viettel-Cloud/blob/main/images/ketqua3.png "")

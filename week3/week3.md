@@ -10,6 +10,7 @@
   - [Bước 2 : Cấu hình](#bước-2--cấu-hình)
   - [Bước 3 : Check ping](#bước-3--check-ping)
   - [Bước 4 : Bắt gói tin ICMP bằng Wireshark](#bước-4--bắt-gói-tin-icmp-bằng-wireshark)
+- [Ưu nhược điểm khi sử dụng VxLAN](#ưu-nhược-điểm-khi-sử-dụng-vxlan)
   - [Tham khao](#tham-khao)
 <br/><br/>
 ## Yeu cau 
@@ -91,6 +92,16 @@ ping -c 4 10.0.5.20
 ![alt text](https://github.com/qc-kgm/Viettel-Cloud/blob/main/week3/wireshark.png  "")
 - Kết quả phân tích gói tin ICMP <br/>
 ![alt text](https://github.com/qc-kgm/Viettel-Cloud/blob/main/week3/wireshark.png "")
+
+## Ưu nhược điểm khi sử dụng VxLAN
+- Ưu điểm 
+Mở rộng khả năng phân chia mạng, theo đó VxLAN sử dụng 24bit cho VxLAN ID (với VLAN là 12 bit) nên có 16 triệu VxLAN ID <br/>
+Không sử dụng STP và cho phép enable ECMP (Equal-Cost MultiPath) --> Cho phép truyền tải gói tin trên nhiều path
+Có thể tích hợp SDN 
+- Nhược điểm 
+Làm tăng dung lượng gói tin do gắn thêm VxLAN ID
+
+
 
 ### Tham khao
 > https://viblo.asia/p/tong-quan-ve-sdn-va-openvswitch-m68Z0N865kG

@@ -19,7 +19,7 @@
     kubectl version --client
     ```
     > Ket qua thuc hien <br/>
-  ![alt text]( "")
+  ![alt text](https://github.com/qc-kgm/Viettel-Cloud/blob/main/images/Screenshot%20from%202021-05-26%2020-07-12.png "")
 2. Install minikube
     - Recommended configuration
     ```sh
@@ -46,10 +46,10 @@
    minikube config set driver docker
    ```
     > Tạo một local Kubernetes gồm 1 node chạy trên  container minikube <br/>
-  ![alt text]( "") 
+  ![alt text](https://github.com/qc-kgm/Viettel-Cloud/blob/main/images/Screenshot%20from%202021-05-26%2020-06-02.png "") 
 
     > kubectl version <br/>
-  ![alt text]( "")
+  ![alt text](https://github.com/qc-kgm/Viettel-Cloud/blob/main/images/Screenshot%20from%202021-05-26%2020-08-38.png "")
 
 ## Cac buoc thuc hien deploy wordpress
 - Tao thu muc lam viec 
@@ -188,20 +188,15 @@ initContainers:
   kubectl apply -f deploy-mariadb.yaml
   ```
   >Ket qua thuc hien <br/>
-  ![alt text]( "")
+  ![alt text](https://github.com/qc-kgm/Viettel-Cloud/blob/main/images/Screenshot%20from%202021-05-26%2015-57-52.png "")
   
-  - Kiem tra trang thai cac pods 
-    ```sh
-    kubectl get pods 
-    ```
-    ![alt text]( "")
   - Descirbe pod mariadb
     ```sh
     kubectl describe pod mariadb
     ```
-    ![alt text]( "")
+    ![alt text](https://github.com/qc-kgm/Viettel-Cloud/blob/main/images/Screenshot%20from%202021-05-26%2019-24-31.png "")
 
-2. Deploy wordpress
+1. Deploy wordpress
     - Tao PersistentVolumes (wordpress-pv) 
     - Tao PersistentVolumeClaims (wordpress-pvc)
     - Tao service ,deployment wordpress 
@@ -309,29 +304,34 @@ spec:
   kubectl apply -f deploy-wordpress.yaml
   ```
   >Ket qua thuc hien <br/>
-  ![alt text]( "")
+  ![alt text](https://github.com/qc-kgm/Viettel-Cloud/blob/main/images/Screenshot%20from%202021-05-26%2016-21-07.png "")
   
   - Open Kubernetes dashboard trong browser
     ```sh
     minikube dashboard
     ```
-    
-    ![alt](  "")
+
+    ![alt ]( https://github.com/qc-kgm/Viettel-Cloud/blob/main/images/Screenshot%20from%202021-05-26%2016-21-31.png "")
   - Kiem tra trang thai cac pods 
     ```sh
-    kubectl get pods 
+    kubectl get pods -o wide
     ```
-    ![alt text]( "")
+    ![alt text](https://github.com/qc-kgm/Viettel-Cloud/blob/main/images/Screenshot%20from%202021-05-26%2020-21-27.png "")
   - Descirbe pod wordpress
     ```sh
     kubectl describe pod wordpress
     ```
-    ![alt text]( "")
+    ![alt text](https://github.com/qc-kgm/Viettel-Cloud/blob/main/images/Screenshot%20from%202021-05-26%2019-52-16.png "")
+  - Get service wordpress
+    ```sh
+    kubectl get svc wordpress
+    ```
+    ![alt ](https://github.com/qc-kgm/Viettel-Cloud/blob/main/images/Screenshot%20from%202021-05-26%2019-33-53.png "")
   - Get link trang ket qua 
     ```sh
     minikube service wordpress --url
     ```
-    ![alt text]( "")
+    ![alt text](https://github.com/qc-kgm/Viettel-Cloud/blob/main/images/Screenshot%20from%202021-05-26%2019-34-29.png "")
     > http://192.168.49.2:30521
 1. Kiem tra ket qua 
    ```sh
@@ -342,7 +342,7 @@ spec:
    curl -k http://192.168.49.2:30521
    ```
    > ket qua 
-   ![alt](  "")
+   ![alt](https://github.com/qc-kgm/Viettel-Cloud/blob/main/images/Screenshot%20from%202021-05-26%2018-15-29.png  "")
 
 ### Tai lieu tham khao 
     https://minikube.sigs.k8s.io/docs/start/

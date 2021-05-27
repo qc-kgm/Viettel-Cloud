@@ -1,5 +1,10 @@
-# Week 4
-## Cai dat moi truong minikube
+# Week 4 : Kubernetes 
+- [Week 4 : Kubernetes](#week-4--kubernetes)
+  - [Cai dat minikube](#cai-dat-minikube)
+    - [Chuan bi :](#chuan-bi-)
+  - [Cac buoc thuc hien deploy wordpress](#cac-buoc-thuc-hien-deploy-wordpress)
+  - [Tai lieu tham khao](#tai-lieu-tham-khao)
+## Cai dat minikube
 ### Chuan bi : 
 1. Install kubectl 
    - Install curl 
@@ -253,11 +258,14 @@ metadata:
   labels:
     app: wordpress
 spec:
-  ports:
-    - port: 8080
-  selector:
+  selector: 
     app: wordpress
-  type: LoadBalancer
+  type: NodePort
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
+    nodePort: 30521
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -322,11 +330,11 @@ spec:
     kubectl describe pod wordpress
     ```
     ![alt text](https://github.com/qc-kgm/Viettel-Cloud/blob/main/images/Screenshot%20from%202021-05-26%2019-52-16.png "")
-  - Get service wordpress
+  - Describe service wordpress
     ```sh
     kubectl get svc wordpress
     ```
-    ![alt ](https://github.com/qc-kgm/Viettel-Cloud/blob/main/images/Screenshot%20from%202021-05-26%2019-33-53.png "")
+    ![alt ](https://github.com/qc-kgm/Viettel-Cloud/blob/main/images/Screenshot%20from%202021-05-27%2007-35-29.png "")
   - Get link trang ket qua 
     ```sh
     minikube service wordpress --url
@@ -334,7 +342,11 @@ spec:
     ![alt text](https://github.com/qc-kgm/Viettel-Cloud/blob/main/images/Screenshot%20from%202021-05-26%2019-34-29.png "")
     > http://192.168.49.2:30521
 1. Kiem tra ket qua 
-   ```sh
+   
+  - Truy cap dia chi : http://192.168.49.2:35021
+    > ket qua 
+   ![alt](https://github.com/qc-kgm/Viettel-Cloud/blob/main/images/Screenshot%20from%202021-05-27%2007-36-02.png  "")
+   <!-- ```sh
    minikube ssh
    ```
    > ssh vao container minikube
@@ -342,9 +354,9 @@ spec:
    curl -k http://192.168.49.2:30521
    ```
    > ket qua 
-   ![alt](https://github.com/qc-kgm/Viettel-Cloud/blob/main/images/Screenshot%20from%202021-05-26%2018-15-29.png  "")
+   ![alt](https://github.com/qc-kgm/Viettel-Cloud/blob/main/images/Screenshot%20from%202021-05-26%2018-15-29.png  "") -->
 
-### Tai lieu tham khao 
+## Tai lieu tham khao 
     https://minikube.sigs.k8s.io/docs/start/
     https://kubernetes.io/docs/tasks/run-application/run-single-instance-stateful-application/
     https://docs.bitnami.com/tutorials/work-with-non-root-containers/
